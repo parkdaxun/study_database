@@ -1,0 +1,107 @@
+(1)
+select emp.ename as '사원이름', emp.job as '사원업무'
+from emp, dept
+where emp.deptno = dept.deptno;
+
+(2)
+select emp.ename, emp.sal
+from emp, dept
+where emp.deptno = dept.deptno and dept.deptno = 30;
+
+(3)
+select ename, sal, ifnull((sal+comm), sal), (sal+(sal*0,1))
+from emp
+order by empno;
+
+(4)
+select ename, deptno
+from emp
+where ename like '%s';
+
+(5)
+select max(sal), min(sal), sum(sal), round(avg(sal))  
+from emp;
+
+(6)
+select dept.dname, count(*)
+from emp, dept
+where emp.deptno = dept.deptno
+group by dept.dname;
+
+(7)
+select max(sal)-min(sal)
+from emp;
+
+(8)
+select count(*), sum(sal), round(avg(sal))
+from emp
+where deptno = 30
+order by deptno;
+
+(9)
+select deptno, round(avg(sal))
+from emp
+where rownum<=1
+group by deptno
+order by avg(sal) desc;
+
+(10)
+select emp.job, round(avg(sal))
+from emp
+where emp.job != 'salesman'
+group by emp.job having sum(sal) >= 3000
+order by round(avg(sal)) desc;
+
+(11)
+select count(*)
+from emp
+where not mgr is null;
+
+(12)
+select ename, sal, comm, sal+comm
+from emp
+where comm is not null
+order by sal+comm desc;
+
+(13)
+select deptno, job, count(*)
+from emp
+group by emp.job;
+
+(14)
+select dname
+from dept
+where not exists (select * 
+              from emp
+              where emp.deptno = dept.deptno);
+
+(15)
+select job, count(*)
+from emp
+group by job having count(*) >= 4;
+
+(16)
+select ename
+from emp
+where empno between 7400 and 7600;
+
+(17)
+select emp.ename, dept.dname
+from emp, dept
+where emp.deptno = dept.deptno;
+
+(18)
+select emp.ename, emp.mgr
+from emp;
+
+(19)
+select emp.ename
+from emp
+where emp.sal > (select sal 
+                 from emp
+                 where ename = 'scott');
+          
+(20)      
+select dept.deptno
+from dept, emp
+where emp.ename like 'scott' and emp.deptno = dept.deptno or ename like 'dallas';
