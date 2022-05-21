@@ -1,0 +1,68 @@
+select 극장이름, 극장위치
+from 극장;
+
+select 극장이름
+from 극장
+where 극장위치 like '잠실';
+
+select 이름
+from 고객
+where 주소 like '잠실'
+order by 이름;
+
+select 극장번호, 상영관번호, 영화제목
+from 상영관
+where 가격 <= 8000;
+
+select 이름
+from 고객, 극장
+where 고객.주소 = 극장.극장위치;
+
+select count(극장이름)
+from 극장;
+
+select avg(가격)
+from 상영관;
+
+select count(*)
+from 예약
+where 날짜 = '2020-09-01';
+
+select 영화제목
+from 상영관, 극장
+where 상영관.극장번호 = 극장.극장번호 and 극장이름 = '대한';
+
+select 이름
+from 고객, 극장
+where 고객.주소 = 극장.극장위치 and 극장이름 = '대한';
+
+select sum(가격)
+from 극장, 상영관
+where 극장.극장번호 = 상영관.극장번호 and 극장이름 = '대한';
+
+select 극장번호, count(상영관번호)
+from 상영관
+group by 극장번호;
+
+select *
+from  극장, 상영관
+where 극장.극장번호 = 상영관.극장번호 and 극장위치 = '잠실'
+group by 상영관번호;
+
+select 예약.극장번호, 예약.상영관번호, sum(상영관.좌석수)
+from 예약, 상영관
+where 예약.극장번호 = 상영관.극장번호 and 예약.상영관번호 = 상영관.상영관번호 and 예약.날짜 = '2022-09-01'
+group by 예약.극장번호, 예약.상영관번호;
+
+select 영화제목, 좌석수
+from 예약, 상영관
+where 상영관.극장번호 = 예약.극장번호 and 날짜 = '2020-09-01'
+group by 영화제목;
+
+insert into 극장 values (4, '롯데', '강남');
+insert into 고객 values (5, '박다은', '강남');
+insert into 상영관 values (3, 6, '쉬운 영화', 14000, 14);
+insert into 예약 values (1, 1, 3, 14, '2022-09-01');
+
+update 상영관 set 가격 = 가격 + 가격 * ( 10/100);
+select * from 상영관;

@@ -1,0 +1,33 @@
+(1)
+
+select *
+from acc_intakes
+where name is not null;
+
+
+(2)
+
+select animal_id, breed
+from acc_intakes
+where breed like '%Mix%';
+
+
+(3)
+
+select animal_type, count(animal_type) as total
+from acc_intakes
+group by animal_type;
+
+
+(4)
+
+select animal_id
+from acc_intakes
+where animal_type like 'Cat' and intake_condition like 'Injured';
+
+
+(5)
+
+select animal_type, Min(datetime)
+from acc_intakes
+group by animal_type;

@@ -1,0 +1,60 @@
+SQL의 종류
+
+1. DDL(Data Definition Langauge) : 데이터 정의어 - 데이터의 구조를 생성, 변경, 삭제. (뼈대), 자동 커밋
+    종류 - create, alter, drop
+
+2. DML(Data Manipulation Language) : 데이터 조작어 - 데이터 값을 삽입, 삭제, 조회, 변경, 커밋 해줘야함
+    종류 - insert, delete, select, update
+
+3. DCL(Data Control Language) : 데이터 제어어 - 계정의 권한을 부여, 삭제, 커밋 필요 X
+    종류 - grant, revoke
+
+오라클이 관리하는 DB - 네모네모, 계층형 DB, 네트워크 망 DB, 관계형 사용할거임 - 표(테이블 형식)
+
+SQL의 문장으로 확인 가능.. 고객의 웹 페이지로 상태 확인 가능,
+
+System 계정 = user = 사용자 = (스키마)
+
+
+시스템 계정이 하는 역할
+1. 시스템 계정 안의 테이블을 관리
+2. 또 다른 계정을 관리(계정 -> 생성, 삭제, 권한 부여)
+
+
+MADANG 계정 -> 시스템 계정이 생성
+
+확장자 명 : .sql 언어 확인 가능
+Grant = 권한 부여
+Resource = 자원 사용
+View = 읽기 전용 테이블을 생성
+Account Unlock = 마당 계정을 생성했다! 
+
+conn Mandang 계정 접속 
+Book 테이블 뼈대부터, Varchar2(변하는 변수?) = 자료형
+
+날짜 형식 = TO_DATE
+
+SELECT bookname 책이름, price 가격
+FROM book;
+
+에스터리스크 엘리어스 별칭 생략이 가능하다 
+
+ORDER TABLE 
+
+SQL과의 차이점 
+
+
+SELECT phone
+FROM customer;
+WHERE name LIKE '김연아';
+
+SELECT bookname, price
+FROM book;
+
+SELECT price
+FROM book;
+WHERE price < 20000;
+
+SELECT price
+FROM book;
+WHERE publisher LIKE '굿스포츠';
